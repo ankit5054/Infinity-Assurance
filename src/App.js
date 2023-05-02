@@ -21,12 +21,12 @@ function App() {
       <header className="App-header">
         
           <Routes>
-            <Route path="/" element={<Home signedIn={signedIn} setSignedIn={setSignedIn}/>} />
-            <Route path="/signin" element={<Singin signedIn={signedIn} setSignedIn={setSignedIn}/>} />
-            <Route path="/customer" element={<Customer signedIn={signedIn} setSignedIn={setSignedIn}/>} />
-            <Route path="/admin" element={<Admin signedIn={signedIn} setSignedIn={setSignedIn}/>} />
-            <Route path="/employee" element={<Employee signedIn={signedIn} setSignedIn={setSignedIn}/>} />
-            <Route path="/issue/:id" element={<Issue/>} />
+            <Route path="./" element={<Home signedIn={signedIn} setSignedIn={setSignedIn}/>} />
+            <Route path="./signin" element={<Singin signedIn={signedIn} setSignedIn={setSignedIn}/>} />
+            <Route path="./customer" element={<Customer signedIn={signedIn} setSignedIn={setSignedIn}/>} />
+            <Route path="./admin" element={<Admin signedIn={signedIn} setSignedIn={setSignedIn}/>} />
+            <Route path="./employee" element={<Employee signedIn={signedIn} setSignedIn={setSignedIn}/>} />
+            <Route path="./issue/:id" element={<Issue/>} />
           </Routes>
         
 
