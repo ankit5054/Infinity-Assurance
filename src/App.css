@@ -2,27 +2,49 @@
   text-align: center;
 }
 
+.logout{
+  align-items: center;
 
-Button{
-margin: 40px 0 0 0 ;
+}
+
+.nav {
+  position: inherit;
+}
+
+Button {
+  margin: 40px 0 0 0;
   height: 60px;
   width: 100px;
   border-radius: 5px;
   font-size: large;
   transition: 0.5s;
-  background-color: azure;
+}
+.Button1 {
+  margin: 40px 0 0 0;
+  height: auto;
+  width: auto;
+  border-radius: 5px;
+  font-size: large;
+  transition: 0.5s;
 }
 
-Button:hover{
+.issueDetail{
+  margin: 10vh;
+  display: grid;
+  text-align: start;
+}
+
+/* Button:hover {
+  margin: 40px 0 0 0;
   height: 65px;
   background-color: rgb(81, 196, 81);
   width: 110px;
   border-radius: 5px;
   font-size: large;
   cursor: pointer;
-}
+} */
 
-.custom-select{
+.custom-select {
   height: 50px;
   width: 380px;
   border-radius: 5%;
@@ -32,10 +54,44 @@ Button:hover{
   align-content: center;
   transition: 1s;
 }
-.select-div{
-  padding: 60px 0 0 0 ;
+.custom-select-1 {
+  height: 50px;
+  width: 380px;
+  border-radius: 5%;
+  font-size: medium;
+  background-color: antiquewhite;
+  /* align-items: center; */
+  align-content: center;
+  transition: 1s;
 }
-input{
+
+table {
+  margin: 10px;
+  border: 2px solid rgb(232, 237, 232);
+  width: 95vw;
+  height: auto;
+  font-size: medium;
+  /* border-radius: 20px; */
+}
+  
+th {
+  border-bottom: 5px solid rgb(250, 247, 247);
+}
+  
+td {
+  text-align: center;
+}
+
+
+.select-div-1 {
+  padding: 10px 0 0 0;
+}
+
+.select-div {
+  margin: 60px 0 0 0;
+}
+
+input {
   height: 40px;
   width: 400px;
   border-radius: 10px;
@@ -53,15 +109,44 @@ input{
   }
 }
 
+.text-area {
+  /* border: 1px solid black; */
+  margin: 1rem;
+  /* padding: 2rem 2rem; */
+  text-align: center;
+}
+
+textarea {
+  background-color: antiquewhite;
+}
+
+.text-area-1 {
+  display: inline-block;
+  margin: 0 0 0 1rem;
+  /* border: 1px solid red; */
+  /* padding: 1rem 1rem; */
+  vertical-align: middle;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.loading {
+  /* align-items: center; */
+  transform: translate(45vw,40vh);
+  /* font-size: calc(10px + 2vmin);
+  background-color: #282c34; */
+  /* min-height: 100vh;
+  display: flex; */
+  /* justify-content: center; */
 }
 
 .App-link {
@@ -72,6 +157,7 @@ input{
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

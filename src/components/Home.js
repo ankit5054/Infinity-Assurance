@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 export default function Home() {
-  window.usertype = "N/A"
+  // window.usertype = "N/A"
   let navigate = useNavigate();
   const [selectValue, setSelectValue] = useState("N/A")
   function handleChange(e) {

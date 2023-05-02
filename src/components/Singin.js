@@ -4,8 +4,9 @@ import { Button } from 'react-bootstrap'
 import Users from '../data/user';
 import Role from '../data/UserRole'
 import { useNavigate } from 'react-router';
+import { signIn } from '../utils/signedIn';
 
-export default function Singin() {
+export default function Singin(props) {
     let navigate = useNavigate()
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
@@ -25,7 +26,8 @@ export default function Singin() {
                     if (Role[name] === window.usertype) {
                         if (Users[name] === password) {
                             alert('You are signed in')
-                            window.signedIn = true
+                            signIn(props.setSignedIn, name)
+                            props.setSignedIn(true)
                             if (window.usertype === "customer") {
                                 navigate('/customer')
                             }
@@ -49,7 +51,16 @@ export default function Singin() {
                 }
             }
             else {
-                alert("Already Signed in!")
+                alert(`Already Signed in as ${window.signedInAs} !`)
+                if (window.signedInAs === "customer") {
+                    navigate('/customer')
+                }
+                else if (window.signedInAs === "employee1") {
+                    navigate('/admin')
+                }
+                else {
+                    navigate('/employee')
+                }
             }
         }
         else {
@@ -62,15 +73,16 @@ export default function Singin() {
     return (
         <div>
             <h1>Singin Page</h1>
+            <p>You have selected {window.usertype}</p>
             <div>
                 <div>
                     Username <input placeholder='Username' onChange={nameHandler}></input>
                 </div>
-                <div style={{ padding: "10px 0 0 0" }}>
+                <div style={{margin:"20px 0 0 20px" }}>
                     Password <input type="password" placeholder='Password' onChange={passwordHandler}></input>
                 </div>
             </div>
-            <Button onClick={signinHanlder}>Submit</Button>
+            <Button onClick={signinHanlder} style={{margin:"20px 0 0 20px" }}>Submit</Button>
         </div>
 
     )
