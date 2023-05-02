@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Infinity-Assurance/static/css/main.5bd5f2cc.css",
-    "main.js": "/Infinity-Assurance/static/js/main.db9e3ef5.js",
+    "main.js": "/Infinity-Assurance/static/js/main.6961321e.js",
     "static/js/787.cda612ba.chunk.js": "/Infinity-Assurance/static/js/787.cda612ba.chunk.js",
     "index.html": "/Infinity-Assurance/index.html",
     "main.5bd5f2cc.css.map": "/Infinity-Assurance/static/css/main.5bd5f2cc.css.map",
-    "main.db9e3ef5.js.map": "/Infinity-Assurance/static/js/main.db9e3ef5.js.map",
+    "main.6961321e.js.map": "/Infinity-Assurance/static/js/main.6961321e.js.map",
     "787.cda612ba.chunk.js.map": "/Infinity-Assurance/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5bd5f2cc.css",
-    "static/js/main.db9e3ef5.js"
+    "static/js/main.6961321e.js"
   ]
 }
