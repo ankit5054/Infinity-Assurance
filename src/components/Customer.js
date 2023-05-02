@@ -86,7 +86,7 @@ export default function Customer(props) {
             await uploadBytes(fileRef, uploadedFiles[0])
                 .then((res) => {
                     // console.log(res)
-                    console.log("Uploaded Successfully")
+                    // console.log("Uploaded Successfully")
                 })
                 .catch(() => {
                     alert(`Unable to upload, please recreate the issue.`)

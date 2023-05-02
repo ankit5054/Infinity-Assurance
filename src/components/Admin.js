@@ -17,7 +17,7 @@ export default function Admin() {
         // console.log(`handleAssignmentChange`);
         for (let i = 0; i < data.length; i++) {
             if (data[i].id === id) {
-                console.log(id)
+                // console.log(id)
                 let data1= data
                 let temp = data[i]
                 temp.assignedTo = e.target.value

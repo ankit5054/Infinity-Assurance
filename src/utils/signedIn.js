@@ -15,7 +15,7 @@ export function IsSignedIn(type) {
     }
 }
 
-export function logout(setSignedIn) {
+export function logout1(setSignedIn) {
     window.signedIn = false;
     window.usertype = "N/A"
     window.signedInAs = "";

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Form, Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import { logout1 } from '../utils/signedIn';
 // import { useNavigate } from 'react-router'
 
 
@@ -8,10 +9,10 @@ export default function Nav1(props) {
 
     function logoutHandler() {
         alert("You will be logged out!")
-        logout(props.setSignedIn)
+        logout1(props.setSignedIn)
     }
 
-    let logout = <Button onClick={logoutHandler} as={Link} to='/' variant="primary">Logout</Button>
+    let logout3 = <Button onClick={logoutHandler} as={Link} to='/' variant="primary">Logout</Button>
     return (
         <>
             <div id="nav">
@@ -22,7 +23,7 @@ export default function Nav1(props) {
                         {/* {props.signedIn ? logout : null} */}
                     </Nav>
                     <Form className="d-flex">
-                        {props.signedIn ? logout : null}
+                        {props.signedIn ? logout3 : null}
                     </Form>
                 </Navbar>
             </div>

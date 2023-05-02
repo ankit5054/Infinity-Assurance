@@ -22,7 +22,7 @@ export default function Singin(props) {
         if (window.usertype !== "N/A") {
             if (!window.signedIn) {
                 if (name in Users) {
-                    console.log(Role[name], window.usertype);
+                    // console.log(Role[name], window.usertype);
                     if (Role[name] === window.usertype) {
                         if (Users[name] === password) {
                             alert('You are signed in')
@@ -78,11 +78,11 @@ export default function Singin(props) {
                 <div>
                     Username <input placeholder='Username' onChange={nameHandler}></input>
                 </div>
-                <div style={{margin:"20px 0 0 20px" }}>
+                <div style={{ margin: "20px 0 0 20px" }}>
                     Password <input type="password" placeholder='Password' onChange={passwordHandler}></input>
                 </div>
             </div>
-            <Button onClick={signinHanlder} style={{margin:"20px 0 0 20px" }}>Submit</Button>
+            <Button onClick={signinHanlder} style={{ margin: "20px 0 0 20px" }}>Submit</Button>
         </div>
 
     )
