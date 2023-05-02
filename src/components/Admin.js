@@ -14,12 +14,10 @@ export default function Admin() {
     let allocated = JSON.parse(localStorage.getItem("allocated"))
 
     function HandleAssignmentChange(e, id) {
-        // console.log(`handleAssignmentChange`);
-        for (let i = 0; i < data.length; i++) {
-            if (data[i].id === id) {
-                // console.log(id)
-                let data1= data
-                let temp = data[i]
+        let data1 = data
+        for (let i = 0; i < data1.length; i++) {
+            if (data1[i].id === id) {
+                let temp = data1[i]
                 temp.assignedTo = e.target.value
                 temp.status = "Open"
 
@@ -27,15 +25,18 @@ export default function Admin() {
                 unallocated = data1
                 if (allocated === null) {
                     localStorage.setItem("allocated", JSON.stringify([temp]))
+
+                    localStorage.setItem("unallocated", JSON.stringify(data1))
+
                 }
                 else {
                     allocated.push(temp)
                     localStorage.setItem("allocated", JSON.stringify(allocated))
+                    localStorage.setItem("unallocated", JSON.stringify(data1))
                 }
-                localStorage.setItem("unallocated", JSON.stringify(data))
-                setdata(unallocated)
             }
         }
+        setdata([...unallocated])
     }
 
     function handleChange(e) {
@@ -90,11 +91,11 @@ export default function Admin() {
                                         <td>{val.productErrors}</td>
                                         <td>{val.DateOfSubmission}</td>
                                         <td>{val.assignedTo}</td>
-                                        <td><Button onClick={()=>{
+                                        <td><Button onClick={() => {
                                             navigate(`/issue/${val.id}`)
                                         }}>More Details</Button></td>
                                         <td>
-                                            <select className="custom-select" style={{ margin: "0 0 0 20px" }} onChange={(e) => { HandleAssignmentChange(e, val.id); setdata(unallocated) }}>
+                                            <select className="custom-select" style={{ margin: "0 0 0 20px" }} onChange={(e) => { HandleAssignmentChange(e, val.id) }}>
                                                 <option value="N/A" defaultChecked className="custom-select">N/A</option>
                                                 <option value="Employee" className="custom-select">Employee</option>
                                             </select>
@@ -123,7 +124,7 @@ export default function Admin() {
                                         <td>{val.DateOfSubmission}</td>
                                         <td>{val.assignedTo}</td>
                                         <td>{val.status}</td>
-                                        <td><Button onClick={()=>{
+                                        <td><Button onClick={() => {
                                             navigate(`/issue/${val.id}`)
                                         }}>More Details</Button></td>
                                     </tr>
