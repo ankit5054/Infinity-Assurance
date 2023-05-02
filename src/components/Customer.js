@@ -135,7 +135,7 @@ export default function Customer(props) {
                 localStorage.setItem("unallocated", JSON.stringify(p))
                 // console.log(localStorage.getItem("unallocated"))
             }
-            alert("Your support request is succesfully submitted.")
+            alert("Your support request is succesfully submitted. A customer care executive will be in touch with you soon. Thanks!")
             setProductType("N/A")
             setError("N/A")
             setproductError([])
@@ -180,6 +180,7 @@ export default function Customer(props) {
             <input id='fileUpload' type='file' multiple
                 accept='application/pdf, image/png, application/docx, application/doc, image/jpg' onChange={handleFileEvent}
             />
+            <p style={{fontSize:"small"}}>Only application/pdf, image/png, application/docx, application/doc, image/jpg are alowed, max size upto 2MB.</p>
             <div>
                 {!(fileLimit || productType === "N/A" || errors === "N/A") ? <Button style={{ margin: "20px 0 0 0" }} onClick={async (e) => {
                     setisSubmit(true)
