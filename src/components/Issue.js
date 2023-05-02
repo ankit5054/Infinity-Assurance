@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { Button } from 'react-bootstrap';
 import { IsSignedIn } from '../utils/signedIn';
@@ -7,6 +7,7 @@ export default function Issue(props) {
     let navigate = useNavigate()
     const params = useParams()
 
+    const [Status, setStatus] = useState("")
     // const [idData, setidData] = useState()
 
     let id = params.id
@@ -25,6 +26,9 @@ export default function Issue(props) {
         }
     }
 
+    useEffect(() => {
+        setStatus(res.status)
+    }, [setStatus, res])
 
 
     function updateStatus(e) {
@@ -44,8 +48,9 @@ export default function Issue(props) {
                 }
             })
             localStorage.setItem("allocated", JSON.stringify(allocated))
-            window.location.reload();
+            // window.location.reload();
         }
+        setStatus(e.target.value)
     }
 
 
@@ -69,14 +74,17 @@ export default function Issue(props) {
                     Assigned To : {res.assignedTo}
                 </div>
                 <div>
-                    Status : {res.status}
+                    Status : {Status}
                 </div>
 
                 {IsSignedIn('employee') ?
                     <div className='select-div-1'>
                         Change Status *
-                        <select className="custom-select" style={{ margin: "0 0 0 20px" }} onChange={updateStatus} >
-                            <option value="In Progress" defaultChecked className="custom-select">In Progress</option>
+                        <select className="custom-select" style={{ margin: "0 0 0 20px" }} onChange={(e) => {
+                             if (e.target.value !== "N/A") {updateStatus(e)}
+                        }} >
+                            <option value="N/A" defaultChecked className="custom-select">N/A</option>
+                            <option value="In Progress" className="custom-select">In Progress</option>
                             <option value="On Hold" className="custom-select">On Hold</option>
                             <option value="Completed" className="custom-select">Completed</option>
                         </select>
@@ -95,7 +103,7 @@ export default function Issue(props) {
                     })}
                 </div>
             </div>
-            <Button style={{margin:"0 0 0 20px"}} onClick={() => {
+            <Button style={{ margin: "0 0 0 20px" }} onClick={() => {
                 if (IsSignedIn('admin')) {
                     navigate(`/admin`)
                 }

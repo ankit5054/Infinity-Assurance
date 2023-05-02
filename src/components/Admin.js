@@ -95,7 +95,9 @@ export default function Admin() {
                                             navigate(`/issue/${val.id}`)
                                         }}>More Details</Button></td>
                                         <td>
-                                            <select className="custom-select" style={{ margin: "0 0 0 20px" }} onChange={(e) => { HandleAssignmentChange(e, val.id) }}>
+                                            <select className="custom-select" style={{ margin: "0 0 0 20px" }} onChange={(e) => {
+                                                if (e.target.value !== "N/A") { HandleAssignmentChange(e, val.id) }
+                                            }}>
                                                 <option value="N/A" defaultChecked className="custom-select">N/A</option>
                                                 <option value="Employee" className="custom-select">Employee</option>
                                             </select>
