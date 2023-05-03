@@ -78,7 +78,7 @@ export default function Admin() {
                                 <th>Product Type</th>
                                 <th>Issue Type</th>
                                 <th>Date Of Submission</th>
-                                <th>Assigned To</th>
+                                {/* <th>Assigned To</th> */}
                                 <th></th>
                                 <th>Assign To</th>
                             </tr>
@@ -90,7 +90,7 @@ export default function Admin() {
                                         <td>{val.productType}</td>
                                         <td>{val.productErrors}</td>
                                         <td>{val.DateOfSubmission}</td>
-                                        <td>{val.assignedTo}</td>
+                                        {/* <td>{val.assignedTo}</td> */}
                                         <td><Button onClick={() => {
                                             navigate(`/issue/${val.id}`)
                                         }}>More Details</Button></td>
