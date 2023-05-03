@@ -10,6 +10,7 @@ import Customer from './components/Customer';
 import Nav1 from './components/Nav';
 import { useState } from 'react';
 import Issue from './components/Issue';
+import Cors1 from './components/Cors1';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         
           <Routes>
             <Route path="/" element={<Home signedIn={signedIn} setSignedIn={setSignedIn}/>} />
+            <Route path="/cors" element={<Cors1 signedIn={signedIn} setSignedIn={setSignedIn}/>} />
             <Route path="/signin" element={<Singin signedIn={signedIn} setSignedIn={setSignedIn}/>} />
             <Route path="/customer" element={<Customer signedIn={signedIn} setSignedIn={setSignedIn}/>} />
             <Route path="/admin" element={<Admin signedIn={signedIn} setSignedIn={setSignedIn}/>} />
