@@ -81,7 +81,7 @@ export default function Issue(props) {
                     <div className='select-div-1'>
                         Change Status *
                         <select className="custom-select" style={{ margin: "0 0 0 20px" }} onChange={(e) => {
-                             if (e.target.value !== "N/A") {updateStatus(e)}
+                            if (e.target.value !== "N/A") { updateStatus(e) }
                         }} >
                             <option value="N/A" defaultChecked className="custom-select">N/A</option>
                             <option value="In Progress" className="custom-select">In Progress</option>
@@ -115,7 +115,7 @@ export default function Issue(props) {
 
     return (
         <>
-            {d}
+            {IsSignedIn("admin") || IsSignedIn('employee') ? d : <><p style={{margin:"50px 0 0 0"}}>You are not signedIn as Admin or Employee</p></>}
         </>
     )
 }
