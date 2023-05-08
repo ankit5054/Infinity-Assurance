@@ -11,11 +11,11 @@ export default function Cors1() {
         })
             .then((res) => {
                 console.log(res);
-                alert(res.data)
+                alert("RES: "+JSON.stringify(res))
             })
             .catch((error) => {
                 console.log(error);
-                alert(error)
+                alert("ERROR: " +error)
             })
     }
     return (
