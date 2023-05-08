@@ -4,15 +4,17 @@ import axios from 'axios';
 
 export default function Cors1() {
     async function axiosCall() {
-        await axios.get("https://infinity-z1xv.onrender.com/api/unallocated",{
-            headers:{
-                "Content-Type":"application/json",            
+        await axios.get("http://infinity-z1xv.onrender.com/api/unallocated", {
+            headers: {
+                "Content-Type": "application/json"
             }
         })
             .then((res) => {
+                console.log(res);
                 alert(res.response.data)
             })
             .catch((error) => {
+                console.log(error);
                 alert(error)
             })
     }
