@@ -7,7 +7,7 @@ export default function Cors1() {
     const [data, setdata] = useState("Nothing")
 
     async function axiosCall() {
-        await axios.get("http://infinity-z1xv.onrender.com/api/unallocated", {
+        await axios.get("https://infinity-z1xv.onrender.com/api/unallocated", {
             headers: {
                 "Content-Type": "application/json"
             }
