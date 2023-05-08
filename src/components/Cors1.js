@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import axios from 'axios';
 
 export default function Cors1() {
+
+    const [data, setdata] = useState("Nothing")
+
     async function axiosCall() {
         await axios.get("http://infinity-z1xv.onrender.com/api/unallocated", {
             headers: {
@@ -11,11 +14,13 @@ export default function Cors1() {
         })
             .then((res) => {
                 console.log(res);
-                alert("RES: "+JSON.stringify(res))
+                setdata(JSON.stringify(res))
+                alert("RES: " + JSON.stringify(res))
             })
             .catch((error) => {
                 console.log(error);
-                alert("ERROR: " +error)
+                setdata(JSON.stringify(error))
+                alert("ERROR: " + error)
             })
     }
     return (
@@ -24,7 +29,11 @@ export default function Cors1() {
             <div>
 
                 <Button style={{ alignItems: "center" }} onClick={axiosCall}>Click Me</Button>
+
             </div>
+            <din>
+                <h6>{data}</h6>
+            </din>
 
         </>
 
