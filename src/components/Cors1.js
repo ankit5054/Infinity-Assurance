@@ -11,7 +11,7 @@ export default function Cors1() {
         })
             .then((res) => {
                 console.log(res);
-                alert(res.response.data)
+                alert(res.data)
             })
             .catch((error) => {
                 console.log(error);
