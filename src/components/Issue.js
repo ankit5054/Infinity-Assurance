@@ -88,7 +88,7 @@ export default function Issue(props) {
 
     return (
         <>
-            {true ? d : <><p style={{ margin: "50px 0 0 0" }}>You are not signedIn as Admin or Employee</p></>}
+            {IsSignedIn("admin") || IsSignedIn('employee') ? d : <><p style={{ margin: "50px 0 0 0" }}>You are not signedIn as Admin or Employee</p></>}
         </>
     )
 }
