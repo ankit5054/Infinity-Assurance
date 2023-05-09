@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { IsSignedIn } from '../utils/signedIn'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
+import { assign, getAllUnallocated, getAllallocated } from '../utils/apiCalls';
 
 // import { Link } from 'react-router-dom'
 
@@ -10,30 +11,20 @@ export default function Admin() {
     let [adminSelected, setadminSelected] = useState("N/A")
     let [data, setdata] = useState([])
 
-    let unallocated = JSON.parse(localStorage.getItem("unallocated"))
-    let allocated = JSON.parse(localStorage.getItem("allocated"))
-
     function HandleAssignmentChange(e, id) {
         let data1 = data
+        // let allocated
+        let unallocated
         for (let i = 0; i < data1.length; i++) {
             if (data1[i].id === id) {
                 let temp = data1[i]
                 temp.assignedTo = e.target.value
                 temp.status = "Open"
 
+                assign(id, e.target.value)
+
                 data1.splice(i, 1)
                 unallocated = data1
-                if (allocated === null) {
-                    localStorage.setItem("allocated", JSON.stringify([temp]))
-
-                    localStorage.setItem("unallocated", JSON.stringify(data1))
-
-                }
-                else {
-                    allocated.push(temp)
-                    localStorage.setItem("allocated", JSON.stringify(allocated))
-                    localStorage.setItem("unallocated", JSON.stringify(data1))
-                }
             }
         }
         setdata([...unallocated])
@@ -42,15 +33,10 @@ export default function Admin() {
     function handleChange(e) {
         setadminSelected(e.target.value)
         if (e.target.value === "unallocated") {
-            // console.log(unallocated)
-            setdata(unallocated)
+            getAllUnallocated(setdata)
         }
         else if (e.target.value === "allocated") {
-
-            if (allocated === null)
-                setdata([])
-            else
-                setdata(allocated)
+            getAllallocated(setdata)
         }
         else
             setdata([])

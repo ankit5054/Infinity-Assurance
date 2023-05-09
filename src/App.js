@@ -8,13 +8,16 @@ import Employee from './components/Employee';
 import Admin from './components/Admin';
 import Customer from './components/Customer';
 import Nav1 from './components/Nav';
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import Issue from './components/Issue';
 import Cors1 from './components/Cors1';
 
 
+export const dataforallissue = createContext()
+
 function App() {
   const [signedIn, setSignedIn]= useState(false)
+  // const [issueData, setissueData] = useState([])
 
   return (
     <div className="App">

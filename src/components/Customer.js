@@ -126,7 +126,7 @@ export default function Customer(props) {
                 'username': "Customer",
                 "status": "New"
             }
-            createIssue(supportRequest);
+            await createIssue(supportRequest);
             alert("Your support request is succesfully submitted. A customer care executive will be in touch with you soon. Thanks!")
             setProductType("N/A")
             setError("N/A")

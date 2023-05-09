@@ -2,61 +2,34 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { Button } from 'react-bootstrap';
 import { IsSignedIn } from '../utils/signedIn';
+import { getSecificIssue } from '../utils/apiCalls';
 
 export default function Issue(props) {
     let navigate = useNavigate()
     const params = useParams()
 
-    const [Status, setStatus] = useState("")
-    // const [idData, setidData] = useState()
+    const [res, setData] = useState({ id: null, productType: null, productErrors: null, issueDesc: null, assignedTo: null, status: null, uploadedFiles: [] })
+
 
     let id = params.id
     let count = 0
 
-
-    let unallocated = JSON.parse(localStorage.getItem("unallocated"))
-    let allocated = JSON.parse(localStorage.getItem("allocated"))
-    let data = [...unallocated, ...allocated]
-    let res
-    let i
-    for (i = 0; i < data.length; i++) {
-        if (data[i].id === id) {
-            res = data[i]
-            break
-        }
-    }
-
     useEffect(() => {
-        setStatus(res.status)
-    }, [setStatus, res])
+        (async () => { await getSecificIssue(id, setData) })()
+    }, [id, setData])
 
-
-    function updateStatus(e) {
-        if (data[i].assignedTo === "Unallocated") {
-            unallocated.forEach((d) => {
-                if (data[i].id === d.id) {
-                    d.status = e.target.value
-                }
-            })
-            localStorage.setItem("unallocated", JSON.stringify(unallocated))
-            window.location.reload();
-        }
-        else {
-            allocated.forEach((d) => {
-                if (data[i].id === d.id) {
-                    d.status = e.target.value
-                }
-            })
-            localStorage.setItem("allocated", JSON.stringify(allocated))
-            // window.location.reload();
-        }
-        setStatus(e.target.value)
+    async function updateStatus(e) {
+        await updateStatus(e.target.value)
+        setData({...res, status:e.target.value})
+        // setStatus(e.target.value)
     }
 
 
 
     let d =
         <>
+            {/* {await getSecificIssue(id, setData)} */}
+            {/* {call()} */}
             <div className='issueDetail'>
                 <div>
                     Task ID : {res.id}
@@ -74,7 +47,7 @@ export default function Issue(props) {
                     Assigned To : {res.assignedTo}
                 </div>
                 <div>
-                    Status : {Status}
+                    Status : {res.status}
                 </div>
 
                 {IsSignedIn('employee') ?
@@ -115,7 +88,7 @@ export default function Issue(props) {
 
     return (
         <>
-            {IsSignedIn("admin") || IsSignedIn('employee') ? d : <><p style={{margin:"50px 0 0 0"}}>You are not signedIn as Admin or Employee</p></>}
+            {true ? d : <><p style={{ margin: "50px 0 0 0" }}>You are not signedIn as Admin or Employee</p></>}
         </>
     )
 }
