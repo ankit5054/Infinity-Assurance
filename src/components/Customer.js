@@ -7,6 +7,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { v4 } from "uuid"
 import ReactLoading from "react-loading";
 import { IsSignedIn } from '../utils/signedIn';
+import { createIssue } from '../utils/apiCalls';
 
 
 export default function Customer(props) {
@@ -125,16 +126,7 @@ export default function Customer(props) {
                 'username': "Customer",
                 "status": "New"
             }
-            // console.log(supportRequest)
-            let p = JSON.parse(localStorage.getItem("unallocated"))
-            if (p === undefined || p === null) {
-                localStorage.setItem("unallocated", JSON.stringify([supportRequest]))
-            }
-            else {
-                p.push(supportRequest)
-                localStorage.setItem("unallocated", JSON.stringify(p))
-                // console.log(localStorage.getItem("unallocated"))
-            }
+            createIssue(supportRequest);
             alert("Your support request is succesfully submitted. A customer care executive will be in touch with you soon. Thanks!")
             setProductType("N/A")
             setError("N/A")
