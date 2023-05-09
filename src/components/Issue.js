@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { Button } from 'react-bootstrap';
 import { IsSignedIn } from '../utils/signedIn';
-import { getSecificIssue } from '../utils/apiCalls';
+import { apiUpdateStatus, getSecificIssue } from '../utils/apiCalls';
 
 export default function Issue(props) {
     let navigate = useNavigate()
@@ -19,8 +19,12 @@ export default function Issue(props) {
     }, [id, setData])
 
     async function updateStatus(e) {
-        await updateStatus(e.target.value)
-        setData({...res, status:e.target.value})
+        let rs1 =res
+        // let value = e.target.value
+        // console.log(e.target.value);
+        apiUpdateStatus(id, e.target.value)
+        rs1.status = e.target.value
+        setData({...rs1})
         // setStatus(e.target.value)
     }
 

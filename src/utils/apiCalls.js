@@ -7,7 +7,7 @@ export async function getAllUnallocated(setdata) {
         }
     })
         .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             setdata(res.data)
             return
         })
@@ -37,8 +37,6 @@ export async function getSecificIssue(id, setData) {
         }
     })
         .then((res) => {
-            alert("getSecificIssue")
-            console.log(res.data[0]);
             setData(res.data[0])
             return
         })
@@ -79,7 +77,7 @@ export async function createIssue(body) {
             alert("Error while fetching Allocating task")
         })
 }
-export async function updateStatus(id, status) {
+export async function apiUpdateStatus(id, status) {
     await axios.post("https://infinity-z1xv.onrender.com/api/status", {
         id: id,
         status: status
@@ -89,6 +87,7 @@ export async function updateStatus(id, status) {
         }
     })
         .then((res) => {
+            alert("Updated Status!")
             return res.data
         })
         .catch((error) => {

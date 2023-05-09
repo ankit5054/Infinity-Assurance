@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IsSignedIn } from '../utils/signedIn'
 import { useNavigate } from 'react-router';
 import { Button } from 'react-bootstrap';
+import { getAllallocated } from '../utils/apiCalls';
 
 
 export default function Employee() {
     let navigate = useNavigate();
-    let allocated = JSON.parse(localStorage.getItem("allocated"))
+    const [allocated, setallocated] = useState([])
+
+
+    useEffect(()=>{
+        (async()=>{ await getAllallocated(setallocated)})()
+    })
+
     return (
         <>
             <div>
